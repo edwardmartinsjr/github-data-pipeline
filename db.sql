@@ -12,3 +12,4 @@ COMMIT;
 
 -- SELECT count(*) FROM organizations;
 -- SELECT id FROM organizations ORDER BY 1 DESC LIMIT 1;
+-- SELECT * FROM organizations;

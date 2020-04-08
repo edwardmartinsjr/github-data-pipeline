@@ -16,8 +16,10 @@ def save_data(df, db_name):
     try:
         # Stores the data into DB (append mode)
         df.to_sql(con=engine, name=db_name, if_exists='append', index=False)
+        return True
     except BaseException as e:
         print(e)
+        return False
 
 def get_last_organization_id():
     id = 0

@@ -47,7 +47,7 @@ def get_repos(organizations):
                 repos = repos.append(pd.read_json(resp.content)[repos_columns])
         else:
             print(resp.content)
-            pass
+            break
 
     # Transform data
     repos['git_url'] = repos['git_url'].astype('str')

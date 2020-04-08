@@ -1,35 +1,33 @@
 import pandas as pd
 import requests
+import store
 
 get_organizations_url = "https://api.github.com/organizations?since="
 
 headers = {'Content-Type': 'application/json'}
 
-def get_organizations():
-    id = 0
+def get_organizations(organization_id):
 
-    # NOTE: When acting as airflow operator this for should be removed...
-    for n in range(3):
+    # Extract the organizations JSON string to pandas object (since pagination).
+    resp = requests.get(get_organizations_url + str(organization_id), headers = headers)
 
-        # Extract the organizations JSON string to pandas object.
-        resp = requests.get(get_organizations_url + str(id), headers = headers)
+    if resp.status_code == 403:
+        print('API rate limit exceeded')
+    elif resp.status_code == 200:
+        # Read data
+        organizations=pd.read_json(resp.content)
 
-        # NOTE: https://github.com/joeyespo/grip/issues/48
-        # 60 requests/hour when using API without authentication
-        if resp.status_code == 403:
-            print('API rate limit exceeded')
-            break
-        elif resp.status_code == 200:
-            organizations=pd.read_json(resp.content)
-            print(organizations[['id','repos_url']])
-            # Get last result to be used on pagination.
-            id = int(organizations['id'].tail(1))
-        else:
-            print(resp.content)
-            break
+        # Prepare data
+        organizations['id'] = pd.to_numeric(organizations['id'])
+
+        # Store data
+        store.save_data(organizations[['id','login']], 'organizations')
+    else:
+        print(resp.content)
             
 if __name__== '__main__':
-    get_organizations()
+    # Run steps
+    get_organizations(store.get_last_organization_id())
 
     
 

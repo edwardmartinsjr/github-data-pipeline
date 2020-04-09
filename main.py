@@ -1,11 +1,16 @@
 import pandas as pd
 import requests
 import store
+import time
 
 get_organizations_url = 'https://api.github.com/organizations?since='
 get_repos_url = 'https://api.github.com/orgs/%(login)s/repos'
 
 headers = {'Content-Type': 'application/json'}
+
+# https://developer.github.com/v3/#rate-limiting
+# For unauthenticated requests, the rate limit allows for up to 60 requests per hour.
+task_delay = 60
 
 def get_organizations(organization_id):
     organizations_columns = ['id', 'login']
@@ -44,11 +49,16 @@ def get_repos(organizations):
         elif resp.status_code == 200:
             # Read data
             if len(resp.json()) > 0:
+                print('Getting %s repos' %(row.login))
                 repos = repos.append(pd.read_json(resp.content)[repos_columns])
         else:
             print(resp.content)
             break
 
+        # Task delay
+        print('Task delay:', str(task_delay))
+        time.sleep(task_delay)
+    
     # Transform data
     repos['git_url'] = repos['git_url'].astype('str')
     repos['language'] = repos['language'].astype('str')
@@ -62,19 +72,21 @@ def get_repos(organizations):
             
 if __name__== '__main__':
     # Get organizations
+    print('Get organizations')
     organizations = get_organizations(store.get_last_organization_id())
 
     # Store organizations
+    print('Store organizations')
     store.save_data(organizations, 'organizations')
 
+    # Task delay
+    print('Task delay:', str(task_delay))
+    time.sleep(task_delay)
+
     # Get repos
+    print('Get repos')
     repos = get_repos(organizations)
 
     # Store repos
+    print('Store repos')
     store.save_data(repos, 'repos')
-
-
-    
-
-
-    

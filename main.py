@@ -71,22 +71,23 @@ def get_repos(organizations):
 
             
 if __name__== '__main__':
-    # Get organizations
-    print('Get organizations')
-    organizations = get_organizations(store.get_last_organization_id())
+    while True:
+        # Get organizations
+        print('Get organizations')
+        organizations = get_organizations(store.get_last_organization_id())
 
-    # Store organizations
-    print('Store organizations')
-    store.save_data(organizations, 'organizations')
+        # Store organizations
+        print('Store organizations')
+        store.save_data(organizations, 'organizations')
 
-    # Task delay
-    print('Task delay:', str(task_delay))
-    time.sleep(task_delay)
+        # Task delay
+        print('Task delay:', str(task_delay))
+        time.sleep(task_delay)
 
-    # Get repos
-    print('Get repos')
-    repos = get_repos(organizations)
+        # Get repos
+        print('Get repos')
+        repos = get_repos(organizations)
 
-    # Store repos
-    print('Store repos')
-    store.save_data(repos, 'repos')
+        # Store repos
+        print('Store repos')
+        store.save_data(repos, 'repos')

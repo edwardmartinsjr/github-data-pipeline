@@ -4,7 +4,7 @@ This assignment consists of creating a data pipeline for:
 - Extract GitHub organizations 
 - Extract organizations repositories
 - Stores the data in a Postgres DB
-- Clone repos
+- Clone stored organizations repositories
 
 
 # Architecture

@@ -17,7 +17,8 @@ Apache Airflow version:
 ![Architecture](architecture-airflow.png?raw=true)
 ![](graph-airflow-view.png?raw=true)
 
-A preliminary version of repository cloning
+A preliminary version of repository cloning:
+
 ![](graph-airflow-clone-repo-view.png?raw=true)
 
 

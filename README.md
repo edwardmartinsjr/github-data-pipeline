@@ -10,10 +10,11 @@ This assignment consists of three parts:
 
 Adhock:
 ![Architecture](architecture.png?raw=true)
+![](graph-view.png?raw=true)
 
 Apache Airflow:
 ![Architecture](architecture-airflow.png?raw=true)
-![](graph-view.png?raw=true)
+![](graph-airflow-view.png?raw=true)
 
 
 

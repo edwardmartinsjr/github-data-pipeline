@@ -1,8 +1,8 @@
 ## DE Assignment - Github ETL Process:
 
-This assignment consists of three parts:
-- Extracting GitHub organizations 
-- Extracting organizations repositories
+This assignment consists of creating a data pipeline for:
+- Extract GitHub organizations 
+- Extract organizations repositories
 - Stores the data in a Postgres DB
 - Clone repos
 

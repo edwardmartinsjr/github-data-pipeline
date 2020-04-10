@@ -1,4 +1,4 @@
-## DE Assignment - Github streaming ETL Process:
+## DE Assignment - Github ETL Process:
 
 This assignment consists of three parts:
 - Extracting GitHub organizations 

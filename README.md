@@ -4,6 +4,7 @@ This assignment consists of three parts:
 - Extracting GitHub organizations 
 - Extracting organizations repositories
 - Stores the data in a Postgres DB
+- Clone repos
 
 
 # Architecture
@@ -15,6 +16,9 @@ Adhock version:
 Apache Airflow version:
 ![Architecture](architecture-airflow.png?raw=true)
 ![](graph-airflow-view.png?raw=true)
+
+A preliminary version of repository cloning
+![](graph-airflow-clone-repo-view.png?raw=true)
 
 
 

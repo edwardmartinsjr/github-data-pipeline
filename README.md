@@ -52,6 +52,7 @@ export POSTGRES_NAME=XXX
 `python main.py`
 
 Running on Apache Airflow:
+
 Add DAG `airflow-dag\github_to_sql.py` to DAGs folder `/Users/username/airflow/dags` 
 
 

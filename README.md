@@ -60,6 +60,8 @@ Running on Apache Airflow:
 
 Add DAG `airflow-dag\github_to_sql.py` to DAGs folder `/Users/username/airflow/dags` 
 
+Add DAG `airflow-dag\clone_repo.py` to DAGs folder `/Users/username/airflow/dags` 
+
 
 ## Python version:
 Python 3.6.8 :: Anaconda, Inc.

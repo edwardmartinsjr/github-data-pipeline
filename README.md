@@ -19,7 +19,7 @@ Apache Airflow:
 
 ## Configuration
 
-There are some env variables you must set to do the Github streaming configs:
+There are some env variables you must set to the application configs:
 
 NAME                      | DESCRIPTION
 --------------------------|------------

@@ -8,11 +8,11 @@ This assignment consists of three parts:
 
 # Architecture
 
-Adhock:
+Adhock version:
 ![Architecture](architecture.png?raw=true)
 ![](graph-view.png?raw=true)
 
-Apache Airflow:
+Apache Airflow version:
 ![Architecture](architecture-airflow.png?raw=true)
 ![](graph-airflow-view.png?raw=true)
 

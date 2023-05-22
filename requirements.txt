@@ -1,5 +1,5 @@
 apache_airflow==1.10.3
-requests==2.23.0
+requests==2.31.0
 pandas==0.23.0
 SQLAlchemy==1.2.19
 airflow==0.6
